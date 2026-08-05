@@ -10,16 +10,18 @@ async function getWeather() {
 
     const city = cityInput.value.trim();
 
-
     if (city === "") {
         alert("Please enter a city name");
         return;
     }
 
 
-    const apiKey = "YOUR_API_KEY";
+    // Paste your OpenWeather API key between the quotes below
+    const apiKey = "PASTE_YOUR_API_KEY_HERE";
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    const url =
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 
     try {
@@ -30,10 +32,8 @@ async function getWeather() {
 
 
         if (data.cod === "404") {
-
             alert("City not found");
             return;
-
         }
 
 
@@ -51,9 +51,9 @@ async function getWeather() {
         "Wind: " + data.wind.speed + " m/s";
 
 
-    } catch (error) {
+    } catch {
 
-        alert("Something went wrong");
+        alert("Unable to get weather data");
 
     }
 
